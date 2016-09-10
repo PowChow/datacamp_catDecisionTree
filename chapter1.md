@@ -182,7 +182,6 @@ Create a feature set of categorical variables with `get_dummies` with all column
 import pandas as pd
 
 cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/course_1742/datasets/cars_dataset_updated.csv')
-print('cars dataset available to workspace')
 ```
 
 *** =sample_code
@@ -227,18 +226,17 @@ success_msg("Great work!")
 --- type:NormalExercise lang:python xp:100 skills:2 key:421f80076b
 ## What Car Features are Most Important? 
 
-Use decision tree with dummy values to determine what categories produce higher ratings
+You have succesfully cleaned the `cars` dataset and converted all string categorical to unique numbers. The features and target variables may be used to run a decision tree in python `sklearn` package. 
 
 *** =instructions
-- instruction 1
-- instruction 2
+Run the code provide in the sample section. What are the leading 2 features that influence a customer to give a car the 'very good' rating? 
 
 *** =hint
 hint comes here
 
 *** =pre_exercise_code
 ```{python}
-# pec
+cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/course_1742/datasets/cars_dataset_updated.csv')
 ```
 
 *** =sample_code
