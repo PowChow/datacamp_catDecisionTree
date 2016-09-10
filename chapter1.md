@@ -21,10 +21,10 @@ Explore the `cars` data:
 
 *** =instructions
 By the columns names alone, which `cars` dataset variables are categorical?
-- option 1
-- option 2
-- option 3
-- option 4 
+- buying_price
+- number_of_doors
+- luggage_capacity
+- customer_rating
 
 *** =hint
 - The `cars` dataset has been preloaded in this exercise as a pandas dataframe. Type "cars" into command line to print out all the values of cars. 
@@ -41,7 +41,7 @@ print('cars uploaded')
 
 *** =sct
 ```{python}
-test_mc(2) # if 2 is the correct option.
+test_mc([1,2,3,4]) # if 2 is the correct option.
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:7d067101e2
