@@ -28,7 +28,7 @@ By the columns names alone, which `cars` dataset variables are categorical?
 
 *** =hint
 - The `cars` dataset has been preloaded in this exercise as a pandas dataframe. Type "cars" into command line to print out all the values of cars. 
-- Do you remember the panda's syntax for head() and columns? It is df.head() and df.columns. Substitute your dataframe for "df".
+- Do you remember the panda's syntax for head() and columns? It is `DataFrame.head()` and `DataFrame.columns`. Substitute your dataset in for DataFrame.
 
 *** =pre_exercise_code
 ```{python}
@@ -47,13 +47,15 @@ test_mc([1,2,3,4]) # if 2 is the correct option.
 --- type:NormalExercise lang:python xp:100 skills:2 key:7d067101e2
 ## Find Categorical Variables
 
-Sometimes it is not easy to eyeball categorical variable just by looking at  
+Sometimes it is not intuitive to see which variables are categorical by simply eyeballing a few rows or inferring from the column names. 
 
-Use panda functions to determine which variables are categorical - describe() and unique() and plot to check
+Pandas `describe()` can help identify categorical variables through quick summary statistics. 
+
+As well as plotting the relationships between every variable and distribution of columns through seaborn `pairplot()` can further illustrate variable types. 
 
 *** =instructions
-- instruction 1
-- instruction 2
+- Generate summary statistics of `cars` dataset
+- 
 
 *** =hint
 hint comes here
@@ -65,12 +67,23 @@ hint comes here
 
 *** =sample_code
 ```{python}
-# sample code
+# Generate summary statistics of dataset
+
+# visualize variables with seaborn
+import seaborn as sns
+
+sns.pairplot(dataset) #insert dataset here
 ```
 
 *** =solution
 ```{python}
-# solution code
+# print summary statistics of dataset
+cars.describe()
+
+# visualize variables with seaborn
+import seaborn as sns
+
+sns.pairplot(cars) #insert dataset here
 ```
 
 *** =sct
