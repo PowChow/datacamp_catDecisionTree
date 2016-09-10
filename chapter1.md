@@ -225,7 +225,7 @@ success_msg("Great work!")
 
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:421f80076b
-## Car Rating Decision Tree
+## What Car Features are Most Important? 
 
 Use decision tree with dummy values to determine what categories produce higher ratings
 
@@ -268,6 +268,11 @@ export_graphviz(treeclf, out_file=dot_data,
                 special_characters=True)  
 graph = pydot.graph_from_dot_data(dot_data.getvalue())  
 Image(graph.create_png())  
+
+# compute the feature importances
+pd.DataFrame({'feature':feature_cols,
+              'importance':treeclf.feature_importances_}).sort_values('importance',
+                                                                      ascending=False).head()
 ```
 
 *** =sct
