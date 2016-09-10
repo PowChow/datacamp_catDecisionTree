@@ -234,6 +234,8 @@ hint comes here
 
 *** =pre_exercise_code
 ```{python}
+import pandas as pd
+
 cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/course_1742/datasets/cars_dataset_updated.csv')
 ```
 
