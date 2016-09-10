@@ -257,6 +257,7 @@ Y = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
 treeclf = DecisionTreeClassifier(max_depth=3, random_state=1)
 treeclf.fit(X, Y)
 
+# prints decision tree, packages are not available in workspace at this time
 #dot_data = StringIO()  
 #export_graphviz(treeclf, out_file=dot_data,  
 #                feature_names=feature_cols,  
