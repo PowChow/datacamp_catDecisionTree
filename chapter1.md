@@ -14,7 +14,7 @@ description : Introduces categorical variables and methods to encode for Decisio
 
 As a data scientist, you will translate categorical variables into numerical variables for analysis, visualization, and modeling. Many python packages are not able to analyze categorical values in string formats.
 
-Here is context for the `cars` dataset. An online car broker wants to understand what features influence customer car ratings. On their site, customers rate cars as 'unacceptable', 'acceptable', 'good', and 'very good'. The ratings along with other car features are captured in the `cars` dataset. At the end of this section, the goal is to use a Decision Tree Model to predict customer ratings based on car features. Initially, the `cars` dataset must be cleaned before the model may be run in your workspace.  
+Here is context for the `cars` dataset. An online car broker wants to understand what features influence customer car ratings. On their site, customers rate cars as 'unacceptable', 'acceptable', 'very good', and 'good' and is captured in the `cars` dataset along with other car features. At the end of this section, the goal is to run a decision tree model to analyze which car features influence better car ratings. Initially, the `cars` dataset must be cleaned before the model may be run in your workspace.  
 
 Explore the `cars` data, which is available in your workspace: 
 
@@ -30,7 +30,7 @@ By looking at column names alone, which `cars` dataset variables are categorical
 - all of the above
 
 *** =hint
-- The `cars` dataset has been preloaded in this exercise as a pandas dataframe. Type "cars" into command line to print out all the values of cars. 
+- Type "cars" into command line to print out all the values of cars. 
 - The correct syntax are `DataFrame.head()` and `DataFrame.columns`. Substitute the `cars` dataset in for DataFrame.
 
 *** =pre_exercise_code
