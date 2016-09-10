@@ -6,7 +6,6 @@ description : Introduces categorical variables and methods to encode for Decisio
 ## Identify Categorical Values
 
 **Categorical variables** are used to describe everything around us. For example, categorical variables that describe people are: 
-
 - gender, 
 - occupation, 
 - blood type, and 
@@ -50,11 +49,11 @@ success_msg("This one can be tricky!")
 --- type:NormalExercise lang:python xp:100 skills:2 key:7d067101e2
 ## Find Categorical Variables
 
-Sometimes it is not intuitive to see which variables are categorical by simply eyeballing a few rows or inferring from the column names. 
+It is not always intuitive to find categorical by eyeballing rows or inferring from the column names. 
 
-Pandas `describe()` can help identify categorical variables through quick summary statistics. You can also determine all the unique values by column with `unique()` function. 
+Pandas `describe()` can help identify categorical variables with summary statistics. Unique values of each column can be printed through the `unique()` function. 
 
-__Notice__: If you have a mixed type dataset with both continuous and categorical variables. The `describe()` function will default to showing summary statistics for continous variable. In cases of mixed type, the data set can be split up between variable types.  
+__Notice__: If datasets are of mixed type, continuous and categorical variables, then the `describe()` function defaults to summary statistics for continous variables. In this case, split columns by variable types before showing summary statistics.
 
 
 *** =instructions
@@ -109,20 +108,33 @@ success_msg("Great work!")
 --- type:NormalExercise lang:python xp:100 skills:2 key:cbb6428a5f
 ## Convert Categorical to Numerical Values 
 
-We are almost done with converting string categorical variables to numbers. 
+Converting categories in text to numbers means that categories are encoded as unique integers. For example, `safety_level` variable has the following values: ['low', 'med', 'high']. These values can be encoded as [0, 1, 2].   
 
-By converting strings to numbers means we are changing unique strings to unique integers. For example, `safety_level` variable in cars  
+By contrast, the pandas `get_dummies` function returns a new column for each unique category, which indicates 0 (False) or 1 (True) for every row with or without each category value. 
 
-categorical codes are just integer values for the unique items in the given category. By contrast, get_dummies returns a new column for each unique item. The value in the column indicates whether or not the record has that attribute.
+For example, three imaginary records in `cars` dataset
+```
+index safety_level
+1   low
+2   med 
+3   high
 
-Use pandas get_dummy method to convert any one variables and join back to dataframe
+```
+through `pandas.get_dummies()` will become
+```
+index low_safety_level med_safety_level high_safety_level
+1,   1,0,0
+2,   0,1,0
+3,   0,0,1
+
+```
 
 *** =instructions
-- instruction 1
+- Create a feature set of categorical variables with `get_dummies` with all columns except for `customer_rating'. 
 - instruction 2
 
 *** =hint
-hint comes here
+- Columns can be explicitly excluded with `pd.drop(DataFrame.drop(column_name, inplace=False))`
 
 *** =pre_exercise_code
 ```{python}
