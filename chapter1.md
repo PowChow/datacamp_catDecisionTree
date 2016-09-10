@@ -35,7 +35,7 @@ By the columns names alone, which `cars` dataset variables are categorical?
 #pre load the dataset into the exercise
 import pandas as pd
 
-cars = pd.read_csv('/datasets/cars_dataset_updated.csv')
+cars = pd.read_csv('cars_dataset_updated.csv')
 print('cars dataset available to workspace')
 ```
 
