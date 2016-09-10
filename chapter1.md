@@ -105,7 +105,7 @@ success_msg("Great work!")
 
 Converting categories from text to numbers means that unqiue strings are encoded into unique integers. For example, `gender` may have the values ['male', 'female', 'nontraditional'] and can be encoded as [0, 1, 2]. 
 
-Since the car broker wants to know which car features influence the `customer_rating` category, this column becomes the target values for the model. 
+Since the car broker wants to know which car features influence the `customer_rating`, this column becomes the target values for the Decision Tree model. 
 
 *** =instructions
 - Print the output of `cars['customer_rating'].unique()`. Then use these values to explicitly `map` strings to unique numbers with a dictionary.
@@ -145,7 +145,7 @@ success_msg("Great work!")
 --- type:NormalExercise lang:python xp:100 skills:2 key:717bf0d477
 ## Convert Categories to Dummies
 
-Another method to convert string category values to numeric values is the pandas `get_dummies` function. The function returns a new column for each unique category, which indicates 0 (False) or 1 (True) for every row with or without each category value. 
+Another method to convert string category values to numeric values is the pandas `get_dummies` function. The function returns a new column for each unique category values. The new column contains 0 (False) or 1 (True) to represent whether the row has the attributed category value.
 
 For example, three imaginary records in `cars` dataset
 
@@ -216,12 +216,10 @@ X.head()
 
 
 ```
-
 *** =sct
 ```{python}
 success_msg("Great work!")
 ```
-
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:421f80076b
 ## What Car Features are Most Important? 
