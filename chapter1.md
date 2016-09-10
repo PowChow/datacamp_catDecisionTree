@@ -1,23 +1,39 @@
 ---
-title       : Which movies categories gets better movie ratings? Creating with Categorical and Dummy Variables for Decision Trees
-description : Introduces categorical variable and methods to convert movies dataset for Decision Tree
+title       : Evalute Car Features
+description : Introduces categorical variables and methods to encode for Decision Tree
 
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2 key:7840cf4c0c
-## Which variables are categorical by name?
+## Identify Categorical Values
 
-Introduction to categorical variable concepts and why for logistic regression? - load dataset columns head()
+**Categorical variables** are used to describe everything around us. For example, categorical variables that describe people are: 
+
+- gender, 
+- occupation, 
+- blood type, and 
+- marital status.
+
+As a data scientist, you will may need to translate categorical variables into numerical variables for analysis, visualization, and modeling. 
+
+Explore the `cars` data: 
+
+- Print out the first few rows and all columns by using `head()`    
+- Print out list of all columns variables by using `columns` 
 
 *** =instructions
+By the columns names alone, which `cars` dataset variables are categorical?
 - option 1
 - option 2
 - option 3
+- option 4 
 
 *** =hint
 hint
 
 *** =pre_exercise_code
 ```{python}
-# pec
+#pre_load the dataset into the exercise
+cars = pd.read_csv('datacamp_cars.csv')
+print('cars uploaded')
 ```
 
 *** =sct
@@ -59,6 +75,8 @@ success_msg("Great work!")
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:a9baf21993
 ## Create panda series categorical values; pandas 'categorical' var type
+
+Explictly identify categorical variables in your dataframe. If not, you'll need to individually take variables 
 
 use pandas categorical method to create a series of categorical variables
 
