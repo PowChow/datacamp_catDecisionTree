@@ -32,6 +32,8 @@ hint
 *** =pre_exercise_code
 ```{python}
 #pre_load the dataset into the exercise
+import pandas as pd
+
 cars = pd.read_csv('datacamp_cars.csv')
 print('cars uploaded')
 ```
