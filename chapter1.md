@@ -2,7 +2,7 @@
 title       : Which movies categories gets better movie ratings? Creating with Categorical and Dummy Variables for Decision Trees
 description : Introduces categorical variable and methods to convert movies dataset for Decision Tree
 
---- type:MultipleChoiceExercise lang:python xp:50 skills:2
+--- type:MultipleChoiceExercise lang:python xp:50 skills:2 key:7840cf4c0c
 ## Which variables are categorical by name?
 
 Introduction to categorical variable concepts and why for logistic regression? - load dataset columns head()
@@ -25,7 +25,7 @@ hint
 test_mc(2) # if 2 is the correct option.
 ```
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:7d067101e2
 ## Methods to check categorical by value
 
 Use panda functions to determine which variables are categorical - describe() and unique() and plot to check
@@ -57,7 +57,7 @@ hint comes here
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:a9baf21993
 ## Create panda series categorical values; pandas 'categorical' var type
 
 use pandas categorical method to create a series of categorical variables
@@ -89,7 +89,7 @@ hint comes here
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:cbb6428a5f
 ## Convert variables into categorical values using Get_Dummy
 
 Use pandas get_dummy method to convert any one variables and join back to dataframe
@@ -121,7 +121,7 @@ hint comes here
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:421f80076b
 ## Use dataframe with created categorical variables to produce a decision tree
 
 Use decision tree with dummy values to determine what categories produce higher ratings
