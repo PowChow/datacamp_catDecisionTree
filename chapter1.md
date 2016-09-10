@@ -119,7 +119,9 @@ Write a function operator to convert the `customer_rating` column to encoded num
 - Create a function that will convert 
 -
 *** =hint
-- Use `cars['customer_rating'].unique()` to explicitly map categories to unique numbers.
+- Use the output of`cars['customer_rating'].unique()` to explicitly `map` categories to unique numbers.
+- Use `map` operater and dictionary to tie each category to number rangning from 0 to 3. 
+- What is the syntax for map? df.columns_name.map({'category_1': 0, 'category_2':1 })
 
 *** =pre_exercise_code
 ```{python}
@@ -129,7 +131,7 @@ import pandas as pd
 cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/course_1742/datasets/cars_dataset_updated.csv')
 print('cars dataset available to workspace')
 
-print('Print unique values for safety_level in cars dataset: ', cars['customer_rating'].unique())
+print('Print unique values for customer_rating in cars dataset: ', cars['customer_rating'].unique())
 ```
 
 *** =sample_code
@@ -140,7 +142,7 @@ print('Print unique values for safety_level in cars dataset: ', cars['customer_r
 *** =solution
 ```{python}
 # solution code
-cars['customer_rating'] = vehicles.type.map({'car':0, 'truck':1})
+cars['customer_rating'] = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
 
 ```
 
