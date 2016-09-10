@@ -109,16 +109,17 @@ success_msg("Great work!")
 --- type:NormalExercise lang:python xp:100 skills:2 key:cbb6428a5f
 ## Encode Categorical Variables
 
-Converting categories in text to numbers means that categories are encoded as unique integers. For example, `safety_level` variable has the values ['low', 'med', 'high'], which be encoded as [0, 1, 2]. 
+Converting categories in text to numbers means that categories are encoded as unique integers. For example, `gender` in any dataset may have the values ['male', 'female', 'nontraditional'], which may be encoded as [0, 1, 2]. 
 
-We can write a function operator to convert the `customer_rating` column to encoded numerical values. We will use the output of your function operator as the target value for our decision tree.     
+Since the question being asked here requires knowledge of `customer_rating` categories, this column will become the target values for the Decision Tree Model. 
+Write a function operator to convert the `customer_rating` column to encoded numerical values. We will use the output of your function operator as the target value for our decision tree.     
 
 
 *** =instructions
 - Create a function that will convert 
-- 
+-
 *** =hint
-- Columns can be explicitly excluded with `pd.drop(DataFrame.drop(column_name, inplace=False))`
+- Use `cars['customer_rating'].unique()` to explicitly map categories to unique numbers.
 
 *** =pre_exercise_code
 ```{python}
