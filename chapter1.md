@@ -224,10 +224,13 @@ success_msg("Great work!")
 --- type:NormalExercise lang:python xp:100 skills:2 key:421f80076b
 ## What Car Features are Most Important? 
 
-You have succesfully cleaned the `cars` dataset and converted all string categorical to unique numbers. The features and target variables may be used to run a decision tree in python `sklearn` package. 
+You have succesfully cleaned the `cars` dataset and converted all string categorical to unique numbers. The features and target variables may be used to run a decision tree model in python `sklearn` package.
+
+Notice: This is just the start of modeling and prediction. In this decision tree model we did not best practices for data science, such as train and test split. 
+
 
 *** =instructions
-Run the code provide in the sample section. What are the leading 2 features that influence a customer to give a car the 'very good' rating? 
+Run the code provide in the sample section. What are the most important features that influence a customer to give a car the 'very good' rating? 
 
 *** =hint
 hint comes here
@@ -254,7 +257,7 @@ feature_col_names = X.columns
 
 Y = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
 
-treeclf = DecisionTreeClassifier(max_depth=3, random_state=1)
+treeclf = DecisionTreeClassifier(max_depth=1, random_state=1)
 treeclf.fit(X, Y)
 
 # prints decision tree, packages are not available in workspace at this time
@@ -282,7 +285,7 @@ feature_col_names = X.columns
 
 Y = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
 
-treeclf = DecisionTreeClassifier(max_depth=3, random_state=1)
+treeclf = DecisionTreeClassifier(max_depth=4, random_state=1)
 treeclf.fit(X, Y)
 
 # print the most important
