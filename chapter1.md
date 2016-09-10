@@ -17,7 +17,8 @@ As a data scientist, you will may need to translate categorical variables into n
 Explore the `cars` data: 
 
 - Print out the first few rows and all columns by using `head()`    
-- Print out list of all columns variables by using `columns` 
+- Print out list of all columns variables by using `columns`
+- 
 By looking at columns names alone, which `cars` dataset variables are categorical?
 *** =instructions
 - Buying Price
@@ -50,29 +51,31 @@ success_msg("This one can be tricky!")
 
 Sometimes it is not intuitive to see which variables are categorical by simply eyeballing a few rows or inferring from the column names. 
 
-Pandas `describe()` can help identify categorical variables through quick summary statistics. 
+Pandas `describe()` can help identify categorical variables through quick summary statistics. Pandas `info()` can also provide more information about each column of data. 
 
-As well as plotting the relationships between every variable and distribution of columns through seaborn `pairplot()` can further illustrate variable types. 
-cars
+__Notice__: If you have a mixed type dataset with both continuous and categorical variables. The `describe()` function will default to showing summary statistics for continous variable. In cases of mixed type, the data set can be split up.  
+
+
 *** =instructions
 - Generate summary statistics of `cars` dataset
-- Visualize pairwise relationship of variables using seaborn, remember to import the package
 
 *** =hint
-- What is the syntax using `describe()` with a pandas dataframe? DataFrame.describe()
-- Did you remember to import the seaborn package before you tried to plot? 
-- seaborn.pairplot method can provide some assistance with your plot
+- What is the syntax using `describe()` and `info()` with a pandas dataframe? DataFrame.describe()
 
 *** =pre_exercise_code
 ```{python}
-# pec
+# I read the data in here again, just in case
+import pandas as pd
+
+cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/course_1742/datasets/cars_dataset_updated.csv')
+print('cars dataset available to workspace')
 ```
 
 *** =sample_code
 ```{python}
 # Generate summary statistics of dataset
 
-# visualize pairwise relationship of variables using seaborn
+# Generate more information about
 
 ```
 
@@ -80,12 +83,9 @@ cars
 ```{python}
 # print summary statistics of dataset
 # for categorical variables describe() provides the count of unique categorical variables, most frequent category appearing in that columns, total frequency
+
 cars.describe()
 
-# visualize variables with seaborn
-import seaborn as sns
-
-sns.pairplot(cars) #insert dataset here
 ```
 
 *** =sct
@@ -158,6 +158,54 @@ hint comes here
 ```{python}
 success_msg("Great work!")
 ```
+--- type:NormalExercise lang:python xp:100 skills:2 key:1b317f1a80
+## Find Categorical Variables
+
+Sometimes it is not intuitive to see which variables are categorical by simply eyeballing a few rows or inferring from the column names. ## ADD THE PLOTTING FEATURE ONLY 
+
+Pandas `describe()` can help identify categorical variables through quick summary statistics. 
+
+As well as plotting the relationships between every variable and distribution of columns through seaborn `pairplot()` can further illustrate variable types. However, it is difficult to plot categorical variables as strings so let's do this after we convert these to numbers. 
+
+*** =instructions
+- Generate summary statistics of `cars` dataset
+- Visualize pairwise relationship of variables using seaborn, remember to import the package
+
+*** =hint
+- What is the syntax using `describe()` with a pandas dataframe? DataFrame.describe()
+- Did you remember to import the seaborn package before you tried to plot? 
+- seaborn.pairplot method can provide some assistance with your plot
+
+*** =pre_exercise_code
+```{python}
+# pec
+```
+
+*** =sample_code
+```{python}
+# Generate summary statistics of dataset
+
+# visualize pairwise relationship of variables using seaborn
+
+```
+
+*** =solution
+```{python}
+# print summary statistics of dataset
+# for categorical variables describe() provides the count of unique categorical variables, most frequent category appearing in that columns, total frequency
+cars.describe()
+
+# visualize variables with seaborn
+import seaborn as sns
+
+sns.pairplot(cars) #insert dataset here
+```
+
+*** =sct
+```{python}
+success_msg("Great work!")
+```
+
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:421f80076b
 ## Use dataframe with created categorical variables to produce a decision tree
