@@ -27,11 +27,12 @@ By the columns names alone, which `cars` dataset variables are categorical?
 - option 4 
 
 *** =hint
-hint
+- The `cars` dataset has been preloaded in this exercise as a pandas dataframe. Type "cars" into command line to print out all the values of cars. 
+- Do you remember the panda's syntax for head() and columns? It is df.head() and df.columns. Substitute your dataframe for "df".
 
 *** =pre_exercise_code
 ```{python}
-#pre_load the dataset into the exercise
+#pre load the dataset into the exercise
 import pandas as pd
 
 cars = pd.read_csv('datacamp_cars.csv')
