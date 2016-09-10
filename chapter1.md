@@ -265,7 +265,8 @@ treeclf.fit(X, Y)
 
 # compute the feature importances
 #pd.DataFrame({'feature':feature_cols,
-#              'importance':treeclf.feature_importances_}).sort_values('importance', ascending=False).head()```
+#              'importance':treeclf.feature_importances_}).sort_values('importance', ascending=False).head()
+```
 
 *** =solution
 ```{python}
