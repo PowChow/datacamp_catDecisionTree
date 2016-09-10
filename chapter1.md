@@ -12,7 +12,7 @@ description : Introduces categorical variables and methods to encode for Decisio
 - blood type, and 
 - marital status
 
-As a data scientist, you will may need to translate categorical variables into numerical variables for analysis, visualization, and modeling. 
+As a data scientist, you will may need to translate categorical variables into numerical variables for analysis, visualization, and modeling. Many python packages are not able to analyze categorical values in string format. 
 
 Explore the `cars` data: 
 
@@ -51,16 +51,18 @@ success_msg("This one can be tricky!")
 
 Sometimes it is not intuitive to see which variables are categorical by simply eyeballing a few rows or inferring from the column names. 
 
-Pandas `describe()` can help identify categorical variables through quick summary statistics. Pandas `info()` can also provide more information about each column of data. 
+Pandas `describe()` can help identify categorical variables through quick summary statistics. You can also determine all the unique values by column with `unique()` function. 
 
-__Notice__: If you have a mixed type dataset with both continuous and categorical variables. The `describe()` function will default to showing summary statistics for continous variable. In cases of mixed type, the data set can be split up.  
+__Notice__: If you have a mixed type dataset with both continuous and categorical variables. The `describe()` function will default to showing summary statistics for continous variable. In cases of mixed type, the data set can be split up between variable types.  
 
 
 *** =instructions
-- Generate summary statistics of `cars` dataset
+- Print summary statistics of `cars` dataset with describe()
+- We are interested in the range or ratings customers gave to cars in this dataset. Print out the unique values for the `cusomter_rating` and `safety_level` columns. 
 
 *** =hint
-- What is the syntax using `describe()` and `info()` with a pandas dataframe? DataFrame.describe()
+- What is the syntax using `describe()` pandas dataframes? DataFrame.describe()
+- The pandas `unique()` function applies to Series or columns in pandas dataframes. What is the syntax for using `unique()`? df['column_name'].unique()
 
 *** =pre_exercise_code
 ```{python}
@@ -73,53 +75,29 @@ print('cars dataset available to workspace')
 
 *** =sample_code
 ```{python}
-# Generate summary statistics of dataset
+# Print summary statistics of `cars` dataset with describe()
 
-# Generate more information about
+# Print the unique categorical values for 'customer_rating' column
+
+# Print the unique categorical values for 'safety_level' column
 
 ```
 
 *** =solution
 ```{python}
-# print summary statistics of dataset
+# Print summary statistics of `cars` dataset with describe()
 # for categorical variables describe() provides the count of unique categorical variables, most frequent category appearing in that columns, total frequency
 
-cars.describe()
+print(cars.describe())
 
-```
+# Print the unique categorical values for 'customer_rating' column
 
-*** =sct
-```{python}
-success_msg("Great work!")
-```
+cars['customer_rating'].unique()
 
---- type:NormalExercise lang:python xp:100 skills:2 key:a9baf21993
-## Create panda series categorical values; pandas 'categorical' var type
+# Print the unique categorical values for 'safety_level' column
 
-Explictly identify categorical variables in your dataframe. If not, you'll need to individually take variables 
+cars['safety_level'].unique()
 
-use pandas categorical method to create a series of categorical variables
-
-*** =instructions
-- instruction 1
-- instruction 2
-
-*** =hint
-hint comes here
-
-*** =pre_exercise_code
-```{python}
-# pec
-```
-
-*** =sample_code
-```{python}
-# sample code
-```
-
-*** =solution
-```{python}
-# solution code
 ```
 
 *** =sct
@@ -128,7 +106,7 @@ success_msg("Great work!")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:cbb6428a5f
-## Convert variables into categorical values using Get_Dummy
+## Convert Categorical to Numerical Values 
 
 Use pandas get_dummy method to convert any one variables and join back to dataframe
 
