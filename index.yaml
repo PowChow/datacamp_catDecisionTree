@@ -1,0 +1,22 @@
+- chapter_title: Which movies categories gets better movie ratings? Creating with Categorical and Dummy Variables for Decision Trees
+  chapter_description: Introduces categorical variable and methods to convert movies dataset for Decision Tree
+  exercises:
+  -   type    : MultipleChoiceExercise
+      title   : Which variables are categorical by name?
+      content : Introduction to categorical variable concepts and why for logistic regression? - load dataset columns head()
+      
+  -   type    : NormalExercise
+      title   : Methods to check categorical by value
+      content : Use panda functions to determine which variables are categorical - describe() and unique() and plot to check
+
+  -   type    : NormalExercise
+      title   : Create panda series categorical values; pandas 'categorical' var type
+      content : use pandas categorical method to create a series of categorical variables
+      
+  -   type    : NormalExercise
+      title   : Convert variables into categorical values using Get_Dummy
+      content : Use pandas get_dummy method to convert any one variables and join back to dataframe 
+  
+  -   type    : NormalExercise
+      title   : Use dataframe with created categorical variables to produce a decision tree
+      content : Use decision tree with dummy values to determine what categories produce higher ratings
