@@ -128,7 +128,6 @@ cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/cours
 *** =sample_code
 ```{python}
 # function operator to map category strings from customer_rating to values
-
 ```
 
 *** =solution
@@ -205,7 +204,7 @@ feature_col_names =
 *** =solution
 ```{python}
 # 1. Create a new dataframe without `customer_rating` (target columns)
-new_df = df.drop('acceptability', axis=1)
+new_df = cars.drop('customer_rating', axis=1)
 
 # 2. Apply `get_dummies` to new dataframe
 X = pd.get_dummies(new_df)
@@ -226,7 +225,7 @@ success_msg("Great work!")
 
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:421f80076b
-## Use dataframe with created categorical variables to produce a decision tree
+## Car Rating Decision Tree
 
 Use decision tree with dummy values to determine what categories produce higher ratings
 
@@ -249,7 +248,26 @@ hint comes here
 
 *** =solution
 ```{python}
-# solution code
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import export_graphviz
+from sklearn.externals.six import StringIO
+import pydot
+
+# Encoded categorical features
+X = pd.get_dummies(cars.drop('customer_rating', axis=1))
+
+Y = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
+
+treeclf = DecisionTreeClassifier(max_depth=3, random_state=1)
+treeclf.fit(X, Y)
+
+dot_data = StringIO()  
+export_graphviz(treeclf, out_file=dot_data,  
+                feature_names=feature_cols,  
+                filled=True, rounded=True,  
+                special_characters=True)  
+graph = pydot.graph_from_dot_data(dot_data.getvalue())  
+Image(graph.create_png())  
 ```
 
 *** =sct
