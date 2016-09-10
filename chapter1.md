@@ -152,9 +152,7 @@ success_msg("Great work!")
 --- type:NormalExercise lang:python xp:100 skills:2 key:717bf0d477
 ## Convert Categories to Dummies
 
-Converting categories in text to numbers means that categories are encoded as unique integers. For example, `safety_level` variable has the following values: ['low', 'med', 'high']. These values can be encoded as [0, 1, 2].   
-
-By contrast, the pandas `get_dummies` function returns a new column for each unique category, which indicates 0 (False) or 1 (True) for every row with or without each category value. 
+Another method to convert string category values to numeric values is the pandas `get_dummies` function. The function returns a new column for each unique category, which indicates 0 (False) or 1 (True) for every row with or without each category value. 
 
 For example, three imaginary records in `cars` dataset
 
@@ -173,8 +171,10 @@ through `pandas.get_dummies()` will become
 | 2  | 0  | 0  | 1  |
 
 *** =instructions
-- Create a feature set of categorical variables with `get_dummies` with all columns except for `customer_rating'. 
-- instruction 2
+Create a feature set of categorical variables with `get_dummies` with all columns except for `customer_rating' with the following steps:
+1. Create a new dataframe without `customer_rating' (target columns)
+2. Apply `get_dummies` to new dataframe
+3. Print the first few rows of new dummies dataframe
 
 *** =hint
 - Columns can be explicitly excluded with `pd.drop(DataFrame.drop(column_name, inplace=False))`
@@ -186,65 +186,16 @@ import pandas as pd
 
 cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/course_1742/datasets/cars_dataset_updated.csv')
 print('cars dataset available to workspace')
-
-print('Print unique values for safety_level in cars dataset: ', cars['safety_level'].unique())
 ```
 
 *** =sample_code
 ```{python}
-# sample code
+# Create 
 ```
 
 *** =solution
 ```{python}
 # solution code
-```
-
-*** =sct
-```{python}
-success_msg("Great work!")
-```
---- type:NormalExercise lang:python xp:100 skills:2 key:1b317f1a80
-## Find Categorical Variables
-
-Sometimes it is not intuitive to see which variables are categorical by simply eyeballing a few rows or inferring from the column names. ## ADD THE PLOTTING FEATURE ONLY 
-
-Pandas `describe()` can help identify categorical variables through quick summary statistics. 
-
-As well as plotting the relationships between every variable and distribution of columns through seaborn `pairplot()` can further illustrate variable types. However, it is difficult to plot categorical variables as strings so let's do this after we convert these to numbers. 
-
-*** =instructions
-- Generate summary statistics of `cars` dataset
-- Visualize pairwise relationship of variables using seaborn, remember to import the package
-
-*** =hint
-- What is the syntax using `describe()` with a pandas dataframe? DataFrame.describe()
-- Did you remember to import the seaborn package before you tried to plot? 
-- seaborn.pairplot method can provide some assistance with your plot
-
-*** =pre_exercise_code
-```{python}
-# pec
-```
-
-*** =sample_code
-```{python}
-# Generate summary statistics of dataset
-
-# visualize pairwise relationship of variables using seaborn
-
-```
-
-*** =solution
-```{python}
-# print summary statistics of dataset
-# for categorical variables describe() provides the count of unique categorical variables, most frequent category appearing in that columns, total frequency
-cars.describe()
-
-# visualize variables with seaborn
-import seaborn as sns
-
-sns.pairplot(cars) #insert dataset here
 ```
 
 *** =sct
