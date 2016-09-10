@@ -268,7 +268,7 @@ treeclf.fit(X, Y)
 
 *** =solution
 ```{python}
-#solution code
+#solution code 
 ```
 
 *** =sct
