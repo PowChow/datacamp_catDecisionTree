@@ -243,8 +243,30 @@ hint comes here
 
 *** =sample_code
 ```{python}
-# sample code
-```
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import export_graphviz
+from sklearn.externals.six import StringIO
+import pydot
+
+# Encoded categorical features
+X = pd.get_dummies(cars.drop('customer_rating', axis=1))
+
+Y = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
+
+treeclf = DecisionTreeClassifier(max_depth=3, random_state=1)
+treeclf.fit(X, Y)
+
+dot_data = StringIO()  
+export_graphviz(treeclf, out_file=dot_data,  
+                feature_names=feature_cols,  
+                filled=True, rounded=True,  
+                special_characters=True)  
+graph = pydot.graph_from_dot_data(dot_data.getvalue())  
+Image(graph.create_png())  
+
+# compute the feature importances
+pd.DataFrame({'feature':feature_cols,
+              'importance':treeclf.feature_importances_}).sort_values('importance', ascending=False).head()```
 
 *** =solution
 ```{python}
@@ -271,8 +293,7 @@ Image(graph.create_png())
 
 # compute the feature importances
 pd.DataFrame({'feature':feature_cols,
-              'importance':treeclf.feature_importances_}).sort_values('importance',
-                                                                      ascending=False).head()
+              'importance':treeclf.feature_importances_}).sort_values('importance', ascending=False).head()
 ```
 
 *** =sct
