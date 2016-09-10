@@ -112,12 +112,10 @@ success_msg("Great work!")
 Converting categories in text to numbers means that categories are encoded as unique integers. For example, `gender` in any dataset may have the values ['male', 'female', 'nontraditional'], which may be encoded as [0, 1, 2]. 
 
 Since the question being asked here requires knowledge of `customer_rating` categories, this column will become the target values for the Decision Tree Model. 
-Write a function operator to convert the `customer_rating` column to encoded numerical values. We will use the output of your function operator as the target value for our decision tree.     
-
 
 *** =instructions
-- Create a function that will convert 
--
+Write a function operator to convert the `customer_rating` column to encoded numerical values. We will use the output of your function operator as the target value for our decision tree.    
+
 *** =hint
 - Use the output of`cars['customer_rating'].unique()` to explicitly `map` categories to unique numbers.
 - Use `map` operater and dictionary to tie each category to number rangning from 0 to 3. 
@@ -136,7 +134,8 @@ print('Print unique values for customer_rating in cars dataset: ', cars['custome
 
 *** =sample_code
 ```{python}
-# sample code
+# function operator to map category strings from customer_rating to values
+
 ```
 
 *** =solution
