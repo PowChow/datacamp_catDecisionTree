@@ -18,13 +18,12 @@ Explore the `cars` data:
 
 - Print out the first few rows and all columns by using `head()`    
 - Print out list of all columns variables by using `columns` 
-
+By looking at columns names alone, which `cars` dataset variables are categorical?
 *** =instructions
-By the columns names alone, which `cars` dataset variables are categorical?
-- buying_price
-- number_of_doors
-- luggage_capacity
-- customer_rating
+- Buying Price
+- Number of Doors
+- Customer Rating
+- all of the above
 
 *** =hint
 - The `cars` dataset has been preloaded in this exercise as a pandas dataframe. Type "cars" into command line to print out all the values of cars. 
@@ -41,7 +40,9 @@ print('cars dataset available to workspace')
 
 *** =sct
 ```{python}
-test_mc([1,2,3,4]) # if 2 is the correct option.
+test_mc(5) # if 2 is the correct option.
+success_msg("This one can be tricky!")
+
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:7d067101e2
