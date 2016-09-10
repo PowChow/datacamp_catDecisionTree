@@ -16,10 +16,11 @@ As a data scientist, you will may need to translate categorical variables into n
 
 Explore the `cars` data: 
 
-- Print out the first few rows and all columns by using `head()`    
+- Print out the first few rows and all columns by using `head()`
 - Print out list of all columns variables by using `columns`
-- 
+
 By looking at columns names alone, which `cars` dataset variables are categorical?
+
 *** =instructions
 - Buying Price
 - Number of Doors
@@ -108,6 +109,12 @@ success_msg("Great work!")
 --- type:NormalExercise lang:python xp:100 skills:2 key:cbb6428a5f
 ## Convert Categorical to Numerical Values 
 
+We are almost done with converting string categorical variables to numbers. 
+
+By converting strings to numbers means we are changing unique strings to unique integers. For example, `safety_level` variable in cars  
+
+categorical codes are just integer values for the unique items in the given category. By contrast, get_dummies returns a new column for each unique item. The value in the column indicates whether or not the record has that attribute.
+
 Use pandas get_dummy method to convert any one variables and join back to dataframe
 
 *** =instructions
@@ -119,7 +126,13 @@ hint comes here
 
 *** =pre_exercise_code
 ```{python}
-# pec
+# I read the data in here again, just in case
+import pandas as pd
+
+cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/course_1742/datasets/cars_dataset_updated.csv')
+print('cars dataset available to workspace')
+
+print('Print unique values for safety_level in cars dataset: ', cars['safety_level'].unique())
 ```
 
 *** =sample_code
