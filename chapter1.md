@@ -5,6 +5,8 @@ description : Introduces categorical variables and methods to encode for Decisio
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2 key:7840cf4c0c
 ## Identify Categorical Values
 
+An online car broker wants to understand what car features influence customer car ratings on their site. Customers rate cars as unaccpetable, acceptable, very good, and good. The `cars` dataset captures customer ratings and other car features. The goal is to run a decision tree model at the end of this section to find out what car features influence better ratings for cars. Initially, the `car` dataset must be cleaned before the model may be completed.  
+
 **Categorical variables** are used to describe everything around us. For example, categorical variables that describe people are: 
 - gender, 
 - occupation, 
@@ -104,9 +106,49 @@ cars['safety_level'].unique()
 ```{python}
 success_msg("Great work!")
 ```
-
 --- type:NormalExercise lang:python xp:100 skills:2 key:cbb6428a5f
-## Convert Categorical to Numerical Values 
+## Encode Categorical Variables
+
+Converting categories in text to numbers means that categories are encoded as unique integers. For example, `safety_level` variable has the values ['low', 'med', 'high'], which be encoded as [0, 1, 2]. 
+
+We can write a function operator to convert the `customer_rating` column to encoded numerical values. We will use the output of your function operator as the target value for our decision tree.     
+
+
+*** =instructions
+- Create a function that will convert 
+- 
+*** =hint
+- Columns can be explicitly excluded with `pd.drop(DataFrame.drop(column_name, inplace=False))`
+
+*** =pre_exercise_code
+```{python}
+# I read the data in here again, just in case
+import pandas as pd
+
+cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/course_1742/datasets/cars_dataset_updated.csv')
+print('cars dataset available to workspace')
+
+print('Print unique values for safety_level in cars dataset: ', cars['customer_rating'].unique())
+```
+
+*** =sample_code
+```{python}
+# sample code
+```
+
+*** =solution
+```{python}
+# solution code
+cars['customer_rating'] = vehicles.type.map({'car':0, 'truck':1})
+
+```
+
+*** =sct
+```{python}
+success_msg("Great work!")
+```
+--- type:NormalExercise lang:python xp:100 skills:2 key:717bf0d477
+## Convert Categories to Dummies
 
 Converting categories in text to numbers means that categories are encoded as unique integers. For example, `safety_level` variable has the following values: ['low', 'med', 'high']. These values can be encoded as [0, 1, 2].   
 
