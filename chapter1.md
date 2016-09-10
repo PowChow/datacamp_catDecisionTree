@@ -267,13 +267,27 @@ treeclf.fit(X, Y)
 #Image(graph.create_png())  
 
 # print the most important
-pd.DataFrame({'feature':feature_col_names,
-              'importance':treeclf.feature_importances_}).sort('importance', ascending=False).head()
+print(pd.DataFrame({'feature':feature_col_names,
+              'importance':treeclf.feature_importances_}).sort('importance', ascending=False).head())
 ```
 
 *** =solution
 ```{python}
-#solution code 
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+
+# Encoded categorical features
+X = pd.get_dummies(cars.drop('customer_rating', axis=1))
+feature_col_names = X.columns
+
+Y = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
+
+treeclf = DecisionTreeClassifier(max_depth=3, random_state=1)
+treeclf.fit(X, Y)
+
+# print the most important
+print(pd.DataFrame({'feature':feature_col_names,
+              'importance':treeclf.feature_importances_}).sort('importance', ascending=False).head())
 ```
 
 *** =sct
