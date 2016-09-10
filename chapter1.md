@@ -5,22 +5,23 @@ description : Introduces categorical variables and methods to encode for Decisio
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2 key:7840cf4c0c
 ## Identify Categorical Values
 
-An online car broker wants to understand what car features influence customer car ratings on their site. Customers rate cars as unaccpetable, acceptable, very good, and good. The `cars` dataset captures customer ratings and other car features. The goal is to run a decision tree model at the end of this section to find out what car features influence better ratings for cars. Initially, the `car` dataset must be cleaned before the model may be completed.  
-
 **Categorical variables** are used to describe everything around us. For example, categorical variables that describe people are: 
+
 - gender, 
 - occupation, 
 - blood type, and 
 - marital status
 
-As a data scientist, you will may need to translate categorical variables into numerical variables for analysis, visualization, and modeling. Many python packages are not able to analyze categorical values in string format. 
+As a data scientist, you will translate categorical variables into numerical variables for analysis, visualization, and modeling. Many python packages are not able to analyze categorical values in string formats.
 
-Explore the `cars` data: 
+Here is context for the `cars` dataset. An online car broker wants to understand what features influence customer car ratings. On their site, customers rate cars as 'unacceptable', 'acceptable', 'very good', and 'good' and is captured in the `cars` dataset along with other car features. At the end of this section, the goal is to run a decision tree model to analyze which car features influence better car ratings. Initially, the `cars` dataset must be cleaned before the model may be run in your workspace.  
+
+Explore the `cars` data, which is available in your workspace: 
 
 - Print out the first few rows and all columns by using `head()`
 - Print out list of all columns variables by using `columns`
 
-By looking at columns names alone, which `cars` dataset variables are categorical?
+By looking at column names alone, which `cars` dataset variables are categorical?
 
 *** =instructions
 - Buying Price
@@ -30,7 +31,7 @@ By looking at columns names alone, which `cars` dataset variables are categorica
 
 *** =hint
 - The `cars` dataset has been preloaded in this exercise as a pandas dataframe. Type "cars" into command line to print out all the values of cars. 
-- Do you remember the panda's syntax for head() and columns? It is `DataFrame.head()` and `DataFrame.columns`. Substitute your dataset in for DataFrame.
+- The correct syntax are `DataFrame.head()` and `DataFrame.columns`. Substitute the `cars` dataset in for DataFrame.
 
 *** =pre_exercise_code
 ```{python}
@@ -38,48 +39,46 @@ By looking at columns names alone, which `cars` dataset variables are categorica
 import pandas as pd
 
 cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/course_1742/datasets/cars_dataset_updated.csv')
-print('cars dataset available to workspace')
 ```
 
 *** =sct
 ```{python}
-test_mc(5) # if 2 is the correct option.
-success_msg("This one can be tricky!")
-
+msg1 = "Great!"
+msg2 = "Sorry, try again."
+test_mc(4, [msg2, msg2, msg2, msg1])
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:7d067101e2
 ## Find Categorical Variables
 
-It is not always intuitive to find categorical by eyeballing rows or inferring from the column names. 
+It is not always intuitive to find categorical variables. 
 
-Pandas `describe()` can help identify categorical variables with summary statistics. Unique values of each column can be printed through the `unique()` function. 
+Pandas `describe()` can print out summary statistics for categorical variables. Unique values of each column can be printed through the `unique()` function. 
 
-__Notice__: If datasets are of mixed type, continuous and categorical variables, then the `describe()` function defaults to summary statistics for continous variables. In this case, split columns by variable types before showing summary statistics.
-
+__Notice__: If datasets are of mixed type, continuous and categorical variables, then the `describe()` function defaults to displaying statistics for continous variables only. In this case, split columns by variable types before showing summary statistics.
 
 *** =instructions
-- Print summary statistics of `cars` dataset with describe()
-- We are interested in the range or ratings customers gave to cars in this dataset. Print out the unique values for the `cusomter_rating` and `safety_level` columns. 
+- Print summary statistics for the `cars` dataset
+- We are interested in the range of customer ratings given to cars in this dataset. Print out the unique values for the `cusomter_rating` and `safety_level` columns. 
 
 *** =hint
-- What is the syntax using `describe()` pandas dataframes? DataFrame.describe()
-- The pandas `unique()` function applies to Series or columns in pandas dataframes. What is the syntax for using `unique()`? df['column_name'].unique()
+- The correct syntax for summary statsitics is `DataFrame.describe()`. Substitute your dataset for DataFrame. Notice the features provide by the output of `describe()`, such as count of unique categorical variables, most frequent category appearing in that columns, total frequency.
+- The pandas `unique()` function applies to Series or columns in pandas dataframes. The correct syntax for `unique()` if `df['column_name'].unique()`.
 
 *** =pre_exercise_code
 ```{python}
-# I read the data in here again, just in case
 import pandas as pd
 
 cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/course_1742/datasets/cars_dataset_updated.csv')
-print('cars dataset available to workspace')
 ```
 
 *** =sample_code
 ```{python}
 # Print summary statistics of `cars` dataset with describe()
 
+
 # Print the unique categorical values for 'customer_rating' column
+
 
 # Print the unique categorical values for 'safety_level' column
 
@@ -88,18 +87,13 @@ print('cars dataset available to workspace')
 *** =solution
 ```{python}
 # Print summary statistics of `cars` dataset with describe()
-# for categorical variables describe() provides the count of unique categorical variables, most frequent category appearing in that columns, total frequency
-
 print(cars.describe())
 
 # Print the unique categorical values for 'customer_rating' column
-
 cars['customer_rating'].unique()
 
 # Print the unique categorical values for 'safety_level' column
-
 cars['safety_level'].unique()
-
 ```
 
 *** =sct
@@ -109,17 +103,17 @@ success_msg("Great work!")
 --- type:NormalExercise lang:python xp:100 skills:2 key:cbb6428a5f
 ## Encode Categorical Variables
 
-Converting categories in text to numbers means that categories are encoded as unique integers. For example, `gender` in any dataset may have the values ['male', 'female', 'nontraditional'], which may be encoded as [0, 1, 2]. 
+Converting categories from text to numbers means that unqiue strings are encoded into unique integers. For example, `gender` may have the values ['male', 'female', 'nontraditional'] and can be encoded as [0, 1, 2]. 
 
-Since the question being asked here requires knowledge of `customer_rating` categories, this column will become the target values for the Decision Tree Model. 
+Since the car broker wants to know which car features influence the `customer_rating` category, this column becomes the target values for the model. 
 
 *** =instructions
-Write a function operator to convert the `customer_rating` column to encoded numerical values. We will use the output of your function operator as the target value for our decision tree.    
+- Print the output of `cars['customer_rating'].unique()`. Then use these values to explicitly `map` strings to unique numbers with a dictionary.
+- Write a function that converts strings in the `customer_rating` column to unique numerical values. We will use the output of your function operator as the target value for our decision tree. Use python's built-in `map` function.    
 
 *** =hint
-- Use the output of`cars['customer_rating'].unique()` to explicitly `map` categories to unique numbers.
-- Use `map` operater and dictionary to tie each category to number rangning from 0 to 3. 
-- What is the syntax for map? df.columns_name.map({'category_1': 0, 'category_2':1 })
+- Use the `map` function and dictionary of `string:int` to convert each category from string to integer.  
+- The correct syntax for `map` is `df.columns_name.map({'category_1': 0, 'category_2':1 })`. Substitute values that are relevant for your function. 
 
 *** =pre_exercise_code
 ```{python}
@@ -127,9 +121,8 @@ Write a function operator to convert the `customer_rating` column to encoded num
 import pandas as pd
 
 cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/course_1742/datasets/cars_dataset_updated.csv')
-print('cars dataset available to workspace')
-
-print('Print unique values for customer_rating in cars dataset: ', cars['customer_rating'].unique())
+#print('cars dataset available to workspace')
+#print('Print unique values for customer_rating in cars dataset: ', cars['customer_rating'].unique())
 ```
 
 *** =sample_code
@@ -141,6 +134,7 @@ print('Print unique values for customer_rating in cars dataset: ', cars['custome
 *** =solution
 ```{python}
 # solution code
+print(cars['customer_rating'].unique())
 cars['customer_rating'] = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
 
 ```
@@ -171,13 +165,17 @@ through `pandas.get_dummies()` will become
 | 2  | 0  | 0  | 1  |
 
 *** =instructions
-Create a feature set of categorical variables with `get_dummies` with all columns except for `customer_rating' with the following steps:
-1. Create a new dataframe without `customer_rating' (target columns)
-2. Apply `get_dummies` to new dataframe
-3. Print the first few rows of new dummies dataframe
+Create a feature set of categorical variables with `get_dummies` with all columns except for `customer_rating` with the following steps:
+
+1. Create a new dataframe without `customer_rating` (target columns)
+2. Create an `X` dataframe with `get_dummies`
+3. Keep the column names of X dataframe to `feature_col_names`
+4. Print the first few rows of new dummies dataframe, X
 
 *** =hint
-- Columns can be explicitly excluded with `pd.drop(DataFrame.drop(column_name, inplace=False))`
+- Columns can be explicitly excluded with `pd.drop(DataFrame.drop(column_name, axis=1, inplace=False))`
+- The correct syntax for `get_dummies` is `pd.get_dummies(dataset)`
+- Print the first few rows of any dataframe with `df.head()`
 
 *** =pre_exercise_code
 ```{python}
@@ -190,12 +188,35 @@ print('cars dataset available to workspace')
 
 *** =sample_code
 ```{python}
-# Create 
+# 1. Create a new dataframe without `customer_rating` (target columns)
+new_df = 
+
+# 2. Apply `get_dummies` to new dataframe
+X = 
+
+#3. Keep the column names of X dataframe to `feature_col_names`
+
+feature_col_names = 
+
+# 4. Print the first few rows of new dummies dataframe, X
+
 ```
 
 *** =solution
 ```{python}
-# solution code
+# 1. Create a new dataframe without `customer_rating` (target columns)
+new_df = df.drop('acceptability', axis=1)
+
+# 2. Apply `get_dummies` to new dataframe
+X = pd.get_dummies(new_df)
+
+# 3. Keep the column names of X dataframe to `feature_col_names`
+feature_col_names = X.columns
+
+# 4. Print the first few rows of new dummies dataframe, X
+X.head()
+
+
 ```
 
 *** =sct
