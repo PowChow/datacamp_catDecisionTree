@@ -10,7 +10,7 @@ description : Introduces categorical variables and methods to encode for Decisio
 - gender, 
 - occupation, 
 - blood type, and 
-- marital status.
+- marital status
 
 As a data scientist, you will may need to translate categorical variables into numerical variables for analysis, visualization, and modeling. 
 
@@ -35,8 +35,8 @@ By the columns names alone, which `cars` dataset variables are categorical?
 #pre load the dataset into the exercise
 import pandas as pd
 
-cars = pd.read_csv('datacamp_cars_updated.csv')
-print('cars dataset uploaded to workspace')
+cars = pd.read_csv('./datasets/cars_dataset_updated.csv')
+print('cars dataset available to workspace')
 ```
 
 *** =sct
@@ -45,7 +45,9 @@ test_mc([1,2,3,4]) # if 2 is the correct option.
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:7d067101e2
-## Methods to check categorical by value
+## Find Categorical Variables
+
+Sometimes it is not easy to eyeball categorical variable just by looking at  
 
 Use panda functions to determine which variables are categorical - describe() and unique() and plot to check
 
