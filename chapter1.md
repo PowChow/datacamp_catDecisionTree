@@ -250,6 +250,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 # Encoded categorical features
 X = pd.get_dummies(cars.drop('customer_rating', axis=1))
+feature_col_names = X.columns
 
 Y = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
 
@@ -264,9 +265,9 @@ treeclf.fit(X, Y)
 #graph = pydot.graph_from_dot_data(dot_data.getvalue())  
 #Image(graph.create_png())  
 
-# compute the feature importances
-#pd.DataFrame({'feature':feature_cols,
-#              'importance':treeclf.feature_importances_}).sort_values('importance', ascending=False).head()
+# print the most important
+pd.DataFrame({'feature':feature_col_names,
+              'importance':treeclf.feature_importances_}).sort('importance', ascending=False).head()
 ```
 
 *** =solution
