@@ -53,13 +53,15 @@ Sometimes it is not intuitive to see which variables are categorical by simply e
 Pandas `describe()` can help identify categorical variables through quick summary statistics. 
 
 As well as plotting the relationships between every variable and distribution of columns through seaborn `pairplot()` can further illustrate variable types. 
-
+cars
 *** =instructions
 - Generate summary statistics of `cars` dataset
-- 
+- Visualize pairwise relationship of variables using seaborn, remember to import the package
 
 *** =hint
-hint comes here
+- What is the syntax using `describe()` with a pandas dataframe? DataFrame.describe()
+- Did you remember to import the seaborn package before you tried to plot? 
+- seaborn.pairplot method can provide some assistance with your plot
 
 *** =pre_exercise_code
 ```{python}
@@ -70,15 +72,14 @@ hint comes here
 ```{python}
 # Generate summary statistics of dataset
 
-# visualize variables with seaborn
-import seaborn as sns
+# visualize pairwise relationship of variables using seaborn
 
-sns.pairplot(dataset) #insert dataset here
 ```
 
 *** =solution
 ```{python}
 # print summary statistics of dataset
+# for categorical variables describe() provides the count of unique categorical variables, most frequent category appearing in that columns, total frequency
 cars.describe()
 
 # visualize variables with seaborn
