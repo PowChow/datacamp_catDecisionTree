@@ -239,6 +239,7 @@ cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/cours
 
 *** =sample_code
 ```{python}
+import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 #below packages do not work
 #from sklearn.tree import export_graphviz
