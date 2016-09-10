@@ -147,7 +147,7 @@ success_msg("Great work!")
 
 Another method to convert string category values to numeric values is the pandas `get_dummies` function. The function returns a new column for each unique category values. The new column contains 0 (False) or 1 (True) to represent whether the row has the attributed category value.
 
-For example, three imaginary records in `cars` dataset
+For example, three sample records in `cars` dataset
 
 | index  |safety_level   |  
 |---|---|
