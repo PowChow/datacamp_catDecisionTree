@@ -155,9 +155,9 @@ For example, three imaginary records in `cars` dataset
 | 1  | med  |  
 | 2  | high  |  
 
-through `pandas.get_dummies()` will become
+through `pandas.get_dummies()` the `level_safety` column will be translated into the following table:
 
-| index  | low_safety_level  | med_safety_level  | high_safety_level  |
+| index  | low  | med  | high  |
 |---|---|---|---|
 | 0  | 1  | 0  | 0  |
 | 1  | 0  | 1  | 0  |
