@@ -113,21 +113,20 @@ Converting categories in text to numbers means that categories are encoded as un
 By contrast, the pandas `get_dummies` function returns a new column for each unique category, which indicates 0 (False) or 1 (True) for every row with or without each category value. 
 
 For example, three imaginary records in `cars` dataset
-```
-index safety_level
-1   low
-2   med 
-3   high
 
-```
+| index  |safety_level   |  
+|---|---|
+| 0  | low  | 
+| 1  | med  |  
+| 2  | high  |  
+
 through `pandas.get_dummies()` will become
-```
-index low_safety_level med_safety_level high_safety_level
-1,   1,0,0
-2,   0,1,0
-3,   0,0,1
 
-```
+| index  | low_safety_level  | med_safety_level  | high_safety_level  |
+|---|---|---|---|
+| 0  | 1  | 0  | 0  |
+| 1  | 0  | 1  | 0  |
+| 2  | 0  | 0  | 1  |
 
 *** =instructions
 - Create a feature set of categorical variables with `get_dummies` with all columns except for `customer_rating'. 
