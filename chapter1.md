@@ -212,7 +212,8 @@ X = pd.get_dummies(new_df)
 feature_col_names = X.columns
 
 # 4. Print the first few rows of new dummies dataframe, X
-X.head()
+print(X.head())
+print(feature_col_names.head())
 
 
 ```
@@ -230,7 +231,9 @@ Notice: This is just the start of modeling and prediction. In this decision tree
 
 
 *** =instructions
-Run the code provide in the sample section. What are the most important features that influence a customer to give a car the 'very good' rating? 
+- Run the code provide in the sample section. 
+- Change the `depth=1` of the Decision Tree to `depth=3`. 
+- Answer this question: What are the most important features that influence a customer to give a car the 'very good' rating? 
 
 *** =hint
 hint comes here
@@ -260,7 +263,7 @@ Y = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
 treeclf = DecisionTreeClassifier(max_depth=1, random_state=1)
 treeclf.fit(X, Y)
 
-# prints decision tree, packages are not available in workspace at this time
+# This code prints decision tree, packages are not available in workspace
 #dot_data = StringIO()  
 #export_graphviz(treeclf, out_file=dot_data,  
 #                feature_names=feature_cols,  
@@ -285,7 +288,7 @@ feature_col_names = X.columns
 
 Y = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
 
-treeclf = DecisionTreeClassifier(max_depth=4, random_state=1)
+treeclf = DecisionTreeClassifier(max_depth=3, random_state=1)
 treeclf.fit(X, Y)
 
 # print the most important
