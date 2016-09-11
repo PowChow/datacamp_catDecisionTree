@@ -90,10 +90,10 @@ cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/cours
 print(cars.describe())
 
 # Print the unique categorical values for 'customer_rating' column
-cars['customer_rating'].unique()
+print(cars['customer_rating'].unique())
 
 # Print the unique categorical values for 'safety_level' column
-cars['safety_level'].unique()
+print(cars['safety_level'].unique())
 ```
 
 *** =sct
@@ -134,7 +134,8 @@ cars = pd.read_csv('http://s3.amazonaws.com/assets.datacamp.com/production/cours
 ```{python}
 # solution code
 print(cars['customer_rating'].unique())
-cars['customer_rating'] = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
+Y = cars.customer_rating.map({'unacc':0, 'acc':1, 'vgood': 2, 'good': 3})
+print(Y.head())
 
 ```
 
